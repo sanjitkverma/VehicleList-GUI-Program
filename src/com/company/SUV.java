@@ -10,8 +10,8 @@ public class SUV extends Vehicle {
     public SUV() { }
 
 //SUV + All properties of SUV
-    public SUV(int mpg , String color  , Engine engine , String vehicleID , int seats , int doors , String make , String model , int mileage , int yr , double price , double cargoSpace ){
-        super (mpg , color , engine , vehicleID , seats , doors , make , model , mileage , yr , price);
+    public SUV(int mpg , String color  , Engine engine , String vehicleID , int seats , int doors , String make , String model , int mileage , int year , double price , double cargoSpace ){
+        super (mpg , color , engine , vehicleID , seats , doors , make , model , mileage , year , price);
         this.cargoSpace= cargoSpace;
     }
 //Getter

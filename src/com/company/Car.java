@@ -8,8 +8,8 @@ public class Car extends Vehicle{
     public Car(){ }
 
 //Car + All properties of Car
-    public Car (int mpg , String color , Engine engine , String vehicleID , int seats , int doors , String make , String model , int mileage , int yr , double price , boolean convertible){
-        super(mpg , color, engine, vehicleID, seats, doors, make, model, mileage, yr, price);
+    public Car (int mpg , String color , Engine engine , String vehicleID , int seats , int doors , String make , String model , int mileage , int year , double price , boolean convertible){
+        super(mpg , color, engine, vehicleID, seats, doors, make, model, mileage, year, price);
         this.convertible=convertible;
     }
 //Getter

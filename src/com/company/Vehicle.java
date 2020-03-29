@@ -89,7 +89,7 @@ public class Vehicle{
     public Vehicle(){ }
 
 //Vehicle+ All properties of vehicle
-    public Vehicle(int mpg , String color , Engine engine , String vehicleID , int seats , int doors , String make , String model , int mileage , int yr , double price){
+    public Vehicle(int mpg , String color , Engine engine , String vehicleID , int seats , int doors , String make , String model , int mileage , int year , double price){
         this.mpg= mpg;
         this.color=color;
         this.engine= engine;
@@ -99,7 +99,7 @@ public class Vehicle{
         this.make =make;
         this.model =model;
         this.mileage= mileage;
-        this.year= yr;
+        this.year= year;
         this.price=price;
     }
 

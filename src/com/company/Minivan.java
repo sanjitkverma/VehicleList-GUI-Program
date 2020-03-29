@@ -9,8 +9,8 @@ public class Minivan extends Vehicle {
     public Minivan(){}
 //Minivan + All properties of Minivan
     public Minivan( int mpg, Engine engine, String color, String vehicleID ,int seats, int doors, String make  ,
-        int mileage, String model,int yr, double price, boolean slidingDoors ){
-            super(mpg, color, engine, vehicleID, seats, doors, make, model, mileage, yr, price);
+        int mileage, String model,int year, double price, boolean slidingDoors ){
+            super(mpg, color, engine, vehicleID, seats, doors, make, model, mileage, year, price);
             this.slidingDoors = slidingDoors;
         }
 //Getter
