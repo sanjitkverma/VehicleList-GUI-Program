@@ -49,7 +49,7 @@ Doors: 4
 Price: 19998.99
 VehicleID: 004
 Engine specifications: Automatic, 2WD, 4 cylinders, hybrid, 245.9 hp
-Convertable: No
+Convertible: No
 SUV
 Year: 2015
 Make: GMC
