@@ -1,3 +1,6 @@
+/*
+ *MP2 COMP 167 Sanjit Verma
+ */
 package com.company;
 import java.util.ArrayList;
 import java.io.IOException;
@@ -8,18 +11,19 @@ import java.io.FileWriter;
 //Lotname String
 public class Lot{
     String lotName;
-//Vehicle Arraylist
+    //Vehicle Arraylist
     ArrayList<Vehicle> vehicles;
     public static void main(String[] args) throws IOException {
-        Lot test = new Lot();
-        test.loadVehicles("lot.txt");
-        test.saveVehicles("lot.txt");
+        Lot add = new Lot();
+
+        add.loadVehicles("lot.txt");
+        add.saveVehicles("lot.txt");
     }
-//Lot()
+    //Lot()
     public Lot(){
         vehicles = new ArrayList<>();
     }
-//Getter
+    //Getter
     public String getLotName() {
         return lotName;
     }
@@ -27,7 +31,7 @@ public class Lot{
         return vehicles;
     }
 
-//Setter
+    //Setter
     public void setLotName(String lotName) {
         this.lotName = lotName;
     }
@@ -36,7 +40,7 @@ public class Lot{
         this.vehicles = vehicles;
     }
 
-//Load Vehicle
+    //Load Vehicle
     public void loadVehicles (String fileName) throws IOException {
         File fl = new File(fileName);
         Scanner sc = new Scanner(fl);
@@ -151,7 +155,7 @@ public class Lot{
                 suvs.setPrice(price);
                 suvs.setVehicleID(id);
                 suvs.setEngine(newEngine);
-                sc.skip("Cargo Space:  ");
+                sc.skip("Cargo Space: ");
                 suvs.setCargoSpace(Double.parseDouble(sc.nextLine()));
 
                 sc.skip("Removable Seats:");
@@ -186,18 +190,15 @@ public class Lot{
                 vehicles.add(minivans);
             }
         }
-        for (Vehicle printInfo : vehicles) {
-            System.out.println(printInfo.toString());
-        }
     }
- //Save Vehicle
+    //Save Vehicle
     public void saveVehicles (String fileName) throws IOException {
-        FileWriter fileWriter = new FileWriter(fileName);
+        FileWriter write= new FileWriter(fileName);
         for(Vehicle v:vehicles) {
-            String save="";
+            String save="       ";
             save += v.toString();
-            fileWriter.write(save);
+            write.write(save);
         }
-        fileWriter.close();
+        write.close();
     }
 }
