@@ -4,30 +4,42 @@ import java.io.IOException;
 import java.util.Scanner;
 import java.io.File;
 import java.io.FileWriter;
-
+import javax.swing.JFrame;
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
+import javax.swing.JTextArea;
+import java.awt.event.ActionEvent;
+import javax.swing.JTextField;
+import java.util.List;
 //Lotname String
-public class Lot{
+public class Lot {
     String lotName;
-//Vehicle Arraylist
+    //Vehicle Arraylist
     ArrayList<Vehicle> vehicles;
+
     public static void main(String[] args) throws IOException {
-        Lot test = new Lot();
-        test.loadVehicles("lot.txt");
-        test.saveVehicles("lot.txt");
+        Lot add = new Lot();
+        add.loadVehicles("lot.txt");
+        add.saveVehicles("lot.txt");
+        
+
+
     }
-//Lot()
-    public Lot(){
+    //Lot()
+    public Lot() {
         vehicles = new ArrayList<>();
     }
-//Getter
+
+    //Getter
     public String getLotName() {
         return lotName;
     }
+
     public ArrayList<Vehicle> getVehicles() {
         return vehicles;
     }
 
-//Setter
+    //Setter
     public void setLotName(String lotName) {
         this.lotName = lotName;
     }
@@ -36,8 +48,8 @@ public class Lot{
         this.vehicles = vehicles;
     }
 
-//Load Vehicle
-    public void loadVehicles (String fileName) throws IOException {
+    //Load Vehicle
+    public void loadVehicles(String fileName) throws IOException {
         File fl = new File(fileName);
         Scanner sc = new Scanner(fl);
 
@@ -76,7 +88,7 @@ public class Lot{
             sc.skip("Engine specifications");
             String[] engineInfo = sc.nextLine().split(", ");
 
-            if (type.equals("Car")||type.equals("car")) {
+            if (type.equals("Car") || type.equals("car")) {
                 Engine newEngine = new Engine();
                 newEngine.setTransmission(engineInfo[0]);
                 newEngine.setFourWheelDrive(engineInfo[1] == "4WD");
@@ -101,8 +113,7 @@ public class Lot{
                 sc.skip("Convertible: ");
                 cars.setConvertible(sc.nextLine().trim().equals("Yes"));
                 vehicles.add(cars);
-            }
-            else if (type.equals("Truck")||type.equals("truck")){
+            } else if (type.equals("Truck") || type.equals("truck")) {
                 Engine newEngine = new Engine();
                 newEngine.setTransmission(engineInfo[0]);
                 newEngine.setFourWheelDrive(engineInfo[1] == "4WD");
@@ -128,8 +139,7 @@ public class Lot{
                 trucks.setBedSpace(Double.parseDouble(sc.nextLine()));
                 vehicles.add(trucks);
 
-            }
-            else if (type.equals("SUV")||type.equals("suv")) {
+            } else if (type.equals("SUV") || type.equals("suv")) {
                 Engine newEngine = new Engine();
                 newEngine.setTransmission(engineInfo[0]);
                 newEngine.setFourWheelDrive(engineInfo[1] == "4WD");
@@ -151,15 +161,13 @@ public class Lot{
                 suvs.setPrice(price);
                 suvs.setVehicleID(id);
                 suvs.setEngine(newEngine);
-                sc.skip("Cargo Space:  ");
+                sc.skip("Cargo Space: ");
                 suvs.setCargoSpace(Double.parseDouble(sc.nextLine()));
 
                 sc.skip("Removable Seats:");
                 suvs.setRemovableSeats(sc.nextLine().trim().equals("Yes"));
                 vehicles.add(suvs);
-            }
-
-            else if (type.equals("Van") ||type.equals("van")) {
+            } else if (type.equals("Van") || type.equals("van")) {
                 Engine newEngine = new Engine();
                 newEngine.setTransmission(engineInfo[0]);
                 newEngine.setFourWheelDrive(engineInfo[1] == "4WD");
@@ -190,14 +198,20 @@ public class Lot{
             System.out.println(printInfo.toString());
         }
     }
- //Save Vehicle
-    public void saveVehicles (String fileName) throws IOException {
+
+    //Save Vehicle
+    public void saveVehicles(String fileName) throws IOException {
         FileWriter fileWriter = new FileWriter(fileName);
-        for(Vehicle v:vehicles) {
-            String save="";
+        for (Vehicle v : vehicles) {
+            String save = "";
             save += v.toString();
             fileWriter.write(save);
         }
         fileWriter.close();
     }
 }
+
+
+
+
+
