@@ -7,12 +7,17 @@ import java.io.IOException;
 import java.util.Scanner;
 import java.io.File;
 import java.io.FileWriter;
-
+import java.util.Arrays;
+import java.util.List;
+import java.util.regex.Pattern;
 //Lotname String
 public class Lot{
     String lotName;
+
     //Vehicle Arraylist
     ArrayList<Vehicle> vehicles;
+    List<String> ignoreAll= Arrays.asList("and","it", "you");
+
     public static void main(String[] args) throws IOException {
         Lot add = new Lot();
 
@@ -21,17 +26,17 @@ public class Lot{
     }
     //Lot()
     public Lot(){
-        vehicles = new ArrayList<>();
+        vehicles=new ArrayList<>();
     }
-    //Getter
+
     public String getLotName() {
         return lotName;
     }
+
     public ArrayList<Vehicle> getVehicles() {
         return vehicles;
     }
 
-    //Setter
     public void setLotName(String lotName) {
         this.lotName = lotName;
     }
@@ -48,38 +53,27 @@ public class Lot{
         while (sc.hasNext()) {
             String type = sc.nextLine().trim();
             sc.skip("Year: ");
-
             int year = Integer.parseInt(sc.nextLine().trim());
             sc.skip("Make: ");
-
             String make = sc.nextLine();
             sc.skip("Model: ");
-
             String model = sc.nextLine();
             sc.skip("Mileage:");
-
             int mileage = Integer.parseInt(sc.nextLine().trim());
             sc.skip("Miles Per Gallon: ");
-
             int mpg = Integer.parseInt(sc.nextLine());
             sc.skip("Color: ");
-
             String color = sc.nextLine();
             sc.skip("Seats: ");
-
             int seats = Integer.parseInt(sc.nextLine());
             sc.skip("Doors: ");
-
             int doors = Integer.parseInt(sc.nextLine());
             sc.skip("Price: ");
-
             double price = Double.parseDouble(sc.nextLine());
             sc.skip("VehicleID: ");
-
             String id = sc.nextLine();
             sc.skip("Engine specifications");
             String[] engineInfo = sc.nextLine().split(", ");
-
             if (type.equals("Car")||type.equals("car")) {
                 Engine newEngine = new Engine();
                 newEngine.setTransmission(engineInfo[0]);
